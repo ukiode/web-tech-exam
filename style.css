@@ -1,0 +1,56 @@
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* DESKTOP NAV */
+
+nav, .nav-links {
+    display: flex;
+}
+
+nav {
+	justify-content: space-around;
+	align-items: center;
+	height: 7vh;
+}
+
+#desktop-nav {
+    background-color: #191A1C;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.website-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links-holder {
+    display: flex;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
