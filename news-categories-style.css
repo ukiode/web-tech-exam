@@ -9,6 +9,48 @@ html {
 	scroll-behavior: smooth;
 }
 
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* TRANSITION */
+
+.news-card:hover .news-title h3 {
+    color: #787F87;
+    transition: color 300ms ease;
+}
+
+.news-title h3 {
+    transition: color 300ms ease;
+}
+
+/* Ensure .news-image-holder is relatively positioned */
+.news-image-holder {
+    position: relative;
+    overflow: hidden; /* Prevent overflow if the gradient goes outside the bounds */
+}
+
+/* Default state of the gradient (hidden) */
+.news-image-holder::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(13, 14, 16, 0.00) 0%, rgba(13, 14, 16, 0.52) 100%); /* Gradient to appear */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 300ms ease; /* Smooth transition */
+    z-index: 1; /* Make sure the gradient is on top of the image */
+    border-radius: 0.625rem; /* Match the image's border radius */
+}
+
+/* Apply hover state to the .news-card */
+.news-card:hover .news-image-holder::after {
+    opacity: 1; /* Fade in the gradient on hover */
+}
+
 /* DESKTOP NAV */
 
 nav, .nav-links {

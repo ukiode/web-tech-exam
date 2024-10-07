@@ -9,6 +9,72 @@ html {
 	scroll-behavior: smooth;
 }
 
+a {
+    text-decoration: none;
+}
+
+/* TRANSITION */
+
+.latest-news:hover .latest-news-title,
+.big-article-holder:hover .big-article-title,
+.more-articles:hover .more-articles-title {
+    color: #787F87;
+    transition: color 300ms ease;
+}
+
+.latest-news-picture-holder,
+.big-article-picture-holder,
+.more-articles-picture-holder {
+    position: relative;
+}
+
+.latest-news-title {
+    transition: color 300ms ease; /* Added transition for default state */
+}
+
+/* Ensure .latest-news-picture-holder is relatively positioned */
+.latest-news-picture-holder,
+.big-article-picture-holder,
+.more-articles-picture-holder {
+    position: relative;
+    overflow: hidden; /* Prevent overflow if the gradient extends beyond the image */
+}
+
+/* Default state of the gradient (hidden) */
+.latest-news-picture-holder::after,
+.big-article-picture-holder::after,
+.more-articles-picture-holder::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(13, 14, 16, 0.00) 0%, rgba(13, 14, 16, 0.52) 100%); /* Gradient */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 300ms ease; /* Smooth transition */
+    z-index: 1; /* Ensure the gradient is over the image */
+    border-radius: 0.625rem; /* Ensure the gradient matches the image’s border radius */
+}
+
+/* Apply hover state to the .latest-news */
+.latest-news:hover .latest-news-picture-holder::after,
+.big-article-holder:hover .big-article-picture-holder::after,
+.more-articles:hover .more-articles-picture-holder::after {
+    opacity: 1; /* Show gradient on hover */
+}
+
+
+
+/* POINTERS */
+
+.featured-picture-holder:hover,
+.latest-news:hover,
+.big-article-holder:hover,
+.more-articles:hover {
+    cursor: pointer;
+}
+
 /* DESKTOP NAV */
 
 nav, .nav-links {
@@ -69,7 +135,6 @@ nav {
 /* FEATURED SECTION */
 
 .featured-holder {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,6 +148,7 @@ nav {
     height: 32.5rem;
     border-radius: 1.25rem;
     overflow: hidden;
+    flex-shrink: 0;
     z-index: 1;
 }
 
@@ -93,6 +159,14 @@ nav {
     height: 100%;
     background: linear-gradient(180deg, rgba(13, 14, 16, 0.00) 0%, rgba(13, 14, 16, 0.52) 36.46%, #0D0E10 100%);
     z-index: 2;
+    transition: opacity 300ms ease; /* Smooth transition for the opacity */
+    opacity: 1; /* Initial opacity */
+}
+
+/* Hover state with a whiter gradient */
+.featured-picture-holder:hover::before {
+    background: linear-gradient(180deg, rgba(13, 14, 16, 0.00) 0%, rgba(13, 14, 16, 0.52) 36.46%, #0D0E10 100%);
+    opacity: 0.75; /* Change opacity to create the transition effect */
 }
 
 .featured-picture {
@@ -118,7 +192,17 @@ nav {
 }
 
 .featured-title {
-    font-family: "IBM Plex Serif", serif;
+    display: -webkit-box;
+    width: 39.5rem;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    overflow: hidden;
+    color: var(--white-60, #FFF);
+    text-overflow: ellipsis;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: "IBM Plex Serif";
     font-size: 2.5rem;
     font-style: normal;
     font-weight: 700;
@@ -126,7 +210,24 @@ nav {
 }
 
 .description-holder {
-    font-family: 'IBM Plex Sans', sans-serif;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    color: var(--white-60, #FFF);
+    text-overflow: ellipsis;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.news-category {
+    overflow: hidden;
+    color: var(--white-60, #FFF);
+    text-overflow: ellipsis;
+
+    font-family: "IBM Plex Sans", sans-serif;
     font-size: 1rem;
     font-style: normal;
     font-weight: 600;
@@ -134,9 +235,19 @@ nav {
 }
 
 .featured-date-holder {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.date-published {
+    color: var(--white-60, #FFF);
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 /* LATEST NEWS SECTION */
@@ -158,6 +269,9 @@ nav {
 }
 
 .latest-text {
+    color: var(--black-100, #191A1C);
+
+    font-family: "IBM Plex Serif", serif;
     font-size: 1.5rem;
     font-style: normal;
     font-weight: 700;
@@ -225,6 +339,15 @@ nav {
     line-height: normal;
 }
 
+.period-separator {
+    color: var(--black-80, #3B4046);
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
 .latest-news-date {
     color: var(--black-80, #3B4046);
 
@@ -232,6 +355,23 @@ nav {
     font-size: 0.75rem;
     font-style: normal;
     font-weight: 400;
+    line-height: normal;
+}
+
+.latest-news-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    align-self: stretch;
+
+    overflow: hidden;
+    color: var(--black-100, #191A1C);
+    text-overflow: ellipsis;
+
+    font-family: "IBM Plex Serif", serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
     line-height: normal;
 }
 
@@ -289,7 +429,7 @@ nav {
     align-items: center;
     gap: 0.625rem;
     border-radius: 0.3125rem;
-border: 1px solid var(--white-60, #FFF);
+    border: 1px solid var(--white-60, #FFF);
 }
 
 .big-article-category {
@@ -300,6 +440,10 @@ border: 1px solid var(--white-60, #FFF);
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+}
+
+#big-article-period-separator {
+    color: var(--white-60, #FFF);
 }
 
 .big-article-date {

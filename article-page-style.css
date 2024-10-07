@@ -12,9 +12,52 @@ html {
 hr {
     display: block; 
     margin: 0 auto; 
-    width: 67.5rem;
+    width: auto;
     height: 0.0625rem;
     background: #D9D9D9;
+    margin: 0 6.25rem;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* TRANSITION */
+
+.related-article-card:hover .related-article-title {
+    color: #787F87;
+    transition: color 300ms ease;
+}
+
+.related-article-title {
+    transition: color 300ms ease;
+}
+
+/* Ensure .related-article-picture-holder is relatively positioned */
+.related-article-picture-holder {
+    position: relative;
+    overflow: hidden; /* Prevent overflow if the gradient goes outside the bounds */
+}
+
+/* Default state of the gradient (hidden) */
+.related-article-picture-holder::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(13, 14, 16, 0.00) 0%, rgba(13, 14, 16, 0.52) 100%); /* Gradient to appear */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 300ms ease; /* Smooth transition */
+    z-index: 1; /* Make sure the gradient is on top of the image */
+    border-radius: 0.625rem; /* Match the image's border radius */
+}
+
+/* Apply hover state to the .related-article-card */
+.related-article-card:hover .related-article-picture-holder::after {
+    opacity: 1; /* Fade in the gradient on hover */
 }
 
 /* DESKTOP NAV */
