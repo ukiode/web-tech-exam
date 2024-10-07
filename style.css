@@ -61,6 +61,8 @@ nav {
 
 /* LANDING PAGE */
 
+/* FEATURED SECTION */
+
 .featured-holder {
     position: relative;
     display: flex;
@@ -85,7 +87,7 @@ nav {
     width: 100%;
     height: 100%;
     background: linear-gradient(180deg, rgba(13, 14, 16, 0.00) 0%, rgba(13, 14, 16, 0.52) 36.46%, #0D0E10 100%);
-    z-index: 1;
+    z-index: 2;
 }
 
 .featured-picture {
@@ -97,11 +99,17 @@ nav {
 
 .featured-details-holder {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    padding: 4.13rem 3.31rem;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    z-index: 2;
+    gap: 1rem;
+    justify-content: flex-end;
+    z-index: 3;
 }
 
 .featured-title {
@@ -117,6 +125,105 @@ nav {
     font-size: 1rem;
     font-style: normal;
     font-weight: 600;
+    line-height: normal;
+}
+
+.featured-date-holder {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* LATEST NEWS SECTION */
+
+#latest-news-section {
+    padding-bottom: 3.88rem;
+}
+
+.latest-text-holder {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0 6.25rem;
+    margin-bottom: 1.81rem;
+}
+
+.latest-text {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.latest-news-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4.19rem;
+    margin: 0 6.25rem;
+}
+
+.latest-news {
+    display: flex;
+    width: 13.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.94rem;
+    flex-shrink: 0;
+}
+
+.latest-news-picture-holder {
+    display: flex;
+    height: 8.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+    align-self: stretch;
+}
+
+.latest-news-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.625rem;
+    z-index: 0;
+}
+
+.category-and-date-holder {
+    display: flex;
+    height: 1.625rem;
+    align-items: center;
+    gap: 0.375rem;
+    align-self: stretch;
+}
+
+.latest-news-category-border {
+    display: flex;
+    padding: 0.3125rem 0.625rem;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.3125rem;
+    border: 1px solid var(--black-80, #3B4046);
+}
+
+.latest-news-category {
+    color: var(--black-80, #3B4046);
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.latest-news-date {
+    color: var(--black-80, #3B4046);
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
     line-height: normal;
 }
 
