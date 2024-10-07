@@ -33,6 +33,7 @@ nav {
 .website-title {
     font-size: 24px;
     font-weight: bold;
+    flex-shrink: 0;
 }
 
 .nav-links-holder {
@@ -56,6 +57,67 @@ nav {
 
 .nav-links a:hover {
     text-decoration: underline;
+}
+
+/* LANDING PAGE */
+
+.featured-holder {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 3.75rem 6.25rem;
+}
+
+.featured-picture-holder {
+    position: relative;
+    width: 67.5rem;
+    height: 32.5rem;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.featured-picture-holder::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(13, 14, 16, 0.00) 0%, rgba(13, 14, 16, 0.52) 36.46%, #0D0E10 100%);
+    z-index: 1;
+}
+
+.featured-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.featured-details-holder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.featured-title {
+    font-family: "IBM Plex Serif", serif;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.description-holder {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 
 /* FOOTER */
