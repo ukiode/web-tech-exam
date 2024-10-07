@@ -18,13 +18,13 @@ nav, .nav-links {
 nav {
 	justify-content: space-around;
 	align-items: center;
-	height: 7vh;
+	height: 5rem;
 }
 
 #desktop-nav {
     background-color: #191A1C;
     color: white;
-    padding: 10px 20px;
+    padding: 0px 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,11 +46,48 @@ nav {
 }
 
 .nav-links a {
-    color: white;
+    color: rgb(255, 255, 255);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
     text-decoration: none;
-    font-size: 18px;
 }
 
 .nav-links a:hover {
     text-decoration: underline;
+}
+
+/* FOOTER */
+
+footer, .social-links {
+    display: flex;
+}
+
+footer {
+    justify-content: space-around;
+	align-items: center;
+	height: 3.125rem;
+}
+
+#desktop-footer {
+    background-color: #191A1C;
+    color: white;
+    padding: 0px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright-text {
+    flex-shrink: 0;
+}
+
+.social-links-holder {
+    display: flex;
+}
+
+.social-links-holder {
+    display: flex;
+    gap: 1.5rem;
 }
